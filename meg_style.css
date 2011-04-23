@@ -1,0 +1,7 @@
+.meg_table { }
+.meg_line { }
+.meg_cell { float: left;	text-align:center; }
+.meg_item { margin: 3px; }
+.meg-img {  }
+.meg_border { border: 1px #999999 solid; padding:3px;}
+.clear { clear:both; }
