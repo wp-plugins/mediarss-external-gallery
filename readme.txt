@@ -39,7 +39,7 @@ First version of the plugin.
 * **columns** - number of columns of item for each line (default: 3)
 * **width** or **height** - size in pixels to be used in image resizing. If only one option is set the other option will automatically determined. This uses image caching wich requires the */wp-content/cache* folder to exist.   
 * **image_border** - border around the image
-* **item_border** - border around the intire item
+* **item_border** - border around the entire item
 * **items** - comma separated items to be included in each cell wich can be: >image, *image_thickbox*, *image_file_link*, *image_feed_link*, *title*, *title_file_link*, *title_feed_link*, *description*, *description_file_link*, *description_feed_link*
 
 = Examples =
