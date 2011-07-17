@@ -22,18 +22,6 @@ or by using the 'Add New' in 'Plugins' menu in WordPress
 1. Activate the plugin through the 'Plugins' menu in WordPress
 1. Create the directory '/wp-content/cache' if does not exist
 
-== Screenshots ==
-
-1. Gallery example from a image feed.
-2. Gallery example from a video feed in wich the thumbnails are displayed.
-
-== Changelog ==
-
-= 0.1 =
-First version of the plugin.
-
-== Instructions ==
-
 = Parameters =
 * **url** - url fo the feed. (mandatory)
 * **columns** - number of columns of item for each line (default: 3)
@@ -47,3 +35,14 @@ First version of the plugin.
 * [meg_gallery url=http://backend.deviantart.com/rss.xml?q=gallery%3Akerembeyit%2F463379&type=deviation items=title_feed_link,image columns=3  image_border=true width=150]
 
 * [meg_gallery url=http://revision3.com/diggnation/feed/MP4-hd30 items=title_file_link,image,description_feed_link columns=4 item_border=true]
+
+== Screenshots ==
+
+1. Gallery example from a image feed.
+2. Gallery example from a video feed in wich the thumbnails are displayed.
+
+== Changelog ==
+
+= 0.1 =
+First version of the plugin.
+
