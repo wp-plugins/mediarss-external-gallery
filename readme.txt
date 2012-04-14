@@ -2,7 +2,7 @@
 Contributors: Marco Constâncio
 Tags: rss, feed, media, gallery
 Requires at least: 3.1
-Tested up to: 3.2.1
+Tested up to: 3.3.1
 Stable Tag: trunk
 
 Allows the user to insert a gallery on page/post from media rss feed url using shortcodes.
@@ -48,3 +48,6 @@ First version of the plugin.
 
 = 0.2 =
 Fixed security issue in the thumbnail generation script.
+
+= 0.3 =
+Updated the thumbnail generation script.

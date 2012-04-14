@@ -3,7 +3,7 @@
 Plugin Name: MediaRSS external gallery
 Plugin URI:
 Description: Generates a thumbnails gallery from a media rss feed url.
-Version: 0.2
+Version: 0.3
 Author: Marco Constâncio
 Author URI: http://www.betasix.net
 */
