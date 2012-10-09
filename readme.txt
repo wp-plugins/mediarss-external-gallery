@@ -24,7 +24,7 @@ or by using the 'Add New' in 'Plugins' menu in WordPress
 = Warnings =
 
 * Make sure the directory *wp-content/plugins/mediarss-external-gallery/cache/* is writable.
-* Make sure you have installed php-gd installed for the plugin to cache images. If don't have this installed the plugin will display images without caching them.
+* Make sure you have installed php-gd installed for the plugin to cache images. If don't have this installed, the plugin will display images without caching them.
 
 = Parameters =
 * **url** - url fo the feed. (mandatory)
