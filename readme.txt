@@ -20,14 +20,22 @@ Some of the functions include generation of links to the feed/file, thumbnail cr
 mediarss-external-gallery.zip to the '/wp-content/plugins/' directory
 or by using the 'Add New' in 'Plugins' menu in WordPress
 1. Activate the plugin through the 'Plugins' menu in WordPress
-1. Create the directory '/wp-content/cache' if does not exist
+
+= Warnings =
+
+* Make sure the directory *wp-content/plugins/mediarss-external-gallery/cache/* is writable.
+* Make sure you have installed php-gd installed for the plugin to cache images. If don't have this installed the plugin will display images without caching them.
 
 = Parameters =
 * **url** - url fo the feed. (mandatory)
 * **columns** - number of columns of item for each line (default: 3)
-* **width** or **height** - size in pixels to be used in image resizing. If only one option is set the other option will automatically determined. This uses image caching wich requires the */wp-content/cache* folder to exist.
+* **width** or **height** - size in pixels to be used in image resizing. If only one option is set the other option will automatically determined. This will cache all images.
 * **image_border** - border around the image
 * **item_border** - border around the entire item
+* **start_item** - start displaying items after a specific a from a specific index. (default: 0)
+* **max_items** - limits the number of feeds to display
+* **pagination** - display a pagination bar and show a number of feed items per page. (default: false)
+* **max_pag_items** - limits the number of feeds to display per page when using the pagination option. (default: 6) 
 * **items** - comma separated items to be included in each cell wich can be: *image, *image_thickbox*, *image_file_link*, *image_feed_link*, *title*, *title_file_link*, *title_feed_link*, *description*, *description_file_link*, *description_feed_link*
 
 = Examples =
@@ -51,3 +59,8 @@ Fixed security issue in the thumbnail generation script.
 
 = 0.3 =
 Updated the thumbnail generation script.
+
+= 0.4 =
+Several corrections and tweaks to the code.
+Added the start_item, max_items options.
+Added the pagination option.
