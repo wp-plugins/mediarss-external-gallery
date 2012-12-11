@@ -66,4 +66,4 @@ Added the start_item, max_items options.
 Added the pagination option.
 
 = 0.4.1 =
-Fixes for wordpress 3.5.
+Fixes for wordpress 3.5. 
