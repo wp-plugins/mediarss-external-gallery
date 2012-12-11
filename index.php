@@ -3,7 +3,7 @@
 Plugin Name: MediaRSS external gallery
 Plugin URI:
 Description: Generates a thumbnails gallery from a media rss feed url.
-Version: 0.4
+Version: 0.5
 Author: Marco Constâncio
 Author URI: http://www.betasix.net
 */
@@ -220,26 +220,50 @@ function get_feed_data($enclosure,$item,$meg_param,$option,$classes){
 			return  "<a href='".$item->get_permalink()."'><img src='".$meg_param["img_src"].$enclosure->get_thumbnail().$meg_param["img_src_param"]."' alt='".$enclosure->get_title()."' class='wp-post-img meg-img ".$classes["img"]."' /></a>&nbsp;";
 
 		case "title":
-			return SimplePie_Misc::htmlspecialchars_decode($enclosure->get_title(),ENT_COMPAT)."&nbsp;";
+			return meg_htmlspecialchars_decode($enclosure->get_title(),ENT_COMPAT)."&nbsp;";
 		case "title_file_link":
-			return "<a href='".$enclosure->get_link()."'>".SimplePie_Misc::htmlspecialchars_decode($enclosure->get_title(),ENT_COMPAT)."</a>&nbsp;";
+			return "<a href='".$enclosure->get_link()."'>".meg_htmlspecialchars_decode($enclosure->get_title(),ENT_COMPAT)."</a>&nbsp;";
 		case "title_feed_link":
-			return "<a href='".$item->get_permalink()."'>".SimplePie_Misc::htmlspecialchars_decode($enclosure->get_title(),ENT_COMPAT)."</a>&nbsp;";
+			return "<a href='".$item->get_permalink()."'>".meg_htmlspecialchars_decode($enclosure->get_title(),ENT_COMPAT)."</a>&nbsp;";
 
 		case "description":
-			return strip_tags(SimplePie_Misc::htmlspecialchars_decode($enclosure->get_description(),ENT_COMPAT))."&nbsp;";
+			return strip_tags(meg_htmlspecialchars_decode($enclosure->get_description(),ENT_COMPAT))."&nbsp;";
 		case "description_file_link":
-			return "<a href='".$enclosure->get_link()."'>".strip_tags(SimplePie_Misc::htmlspecialchars_decode($enclosure->get_description(),ENT_COMPAT))."</a>&nbsp;";
+			return "<a href='".$enclosure->get_link()."'>".strip_tags(meg_htmlspecialchars_decode($enclosure->get_description(),ENT_COMPAT))."</a>&nbsp;";
 		case "description_feed_link":
-			return "<a href='".$item->get_permalink()."'>".strip_tags(SimplePie_Misc::htmlspecialchars_decode($enclosure->get_description(),ENT_COMPAT))."</a>&nbsp;";
+			return "<a href='".$item->get_permalink()."'>".strip_tags(meg_htmlspecialchars_decode($enclosure->get_description(),ENT_COMPAT))."</a>&nbsp;";
 	}
 }
 
-wp_register_style('meg_style', WP_PLUGIN_URL . '/mediarss-external-gallery/meg_style.css' );
-wp_enqueue_style(array('meg_style','thickbox'));
-wp_enqueue_script('thickbox');
+function meg_htmlspecialchars_decode($string, $quote_style) {
+  if (function_exists('htmlspecialchars_decode')) {
+    return htmlspecialchars_decode($string, $quote_style);
+  }else{
+    return strtr($string, array_flip(get_html_translation_table(HTML_SPECIALCHARS, $quote_style)));
+  }
+}
 
-wp_register_script('jPages', WP_PLUGIN_URL . '/mediarss-external-gallery/jPages.min.js');
-wp_enqueue_script('jPages');
+# Added because version jquery > 1.8 was causing "Syntax error, unrecognized expression: &#8592; previous" errors
+function my_init() {
+	if (!is_admin()) { 
+		wp_deregister_script('jquery'); 
+		
+		wp_register_script('jquery', 'http://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js', false, '1.7.2'); 
+		wp_enqueue_script('jquery');
+	}
+}
+add_action('init', 'my_init');
 
-add_shortcode('meg_gallery ', 'generate_meg_gallery');
+# Added remove wordpress warnings
+function load_scripts(){
+	wp_register_style('meg_style', WP_PLUGIN_URL . '/mediarss-external-gallery/meg_style.css' );
+	wp_register_script('jPages', WP_PLUGIN_URL . '/mediarss-external-gallery/jPages.min.js');
+
+	wp_enqueue_style('thickbox');
+	wp_enqueue_script('thickbox');
+	wp_enqueue_script('jPages');
+	wp_enqueue_style('meg_style');	
+}
+
+add_action('wp_head', 'load_scripts'); 
+add_shortcode('meg_gallery', 'generate_meg_gallery');
