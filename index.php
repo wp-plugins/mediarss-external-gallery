@@ -3,7 +3,7 @@
 Plugin Name: MediaRSS external gallery
 Plugin URI:
 Description: Generates a thumbnails gallery from a media rss feed url.
-Version: 0.4.1
+Version: 0.4.2
 Author: Marco Constâncio
 Author URI: http://www.betasix.net
 */
@@ -179,7 +179,7 @@ if(isset($meg_param['url'])){
         $all_content.="
                     jQuery('div.meg_pagination_bar').jPages({
                         containerID: 'meg_pages',
-                        perPage      : 1
+                        perPage: 1
                     });
                     ";
     }
@@ -246,9 +246,6 @@ function meg_htmlspecialchars_decode($string, $quote_style) {
 # Added because version jquery > 1.8 was causing "Syntax error, unrecognized expression: &#8592; previous" errors
 function my_init() {
 	if (!is_admin()) { 
-		wp_deregister_script('jquery'); 
-		
-		wp_register_script('jquery', 'http://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js', false, '1.7.2'); 
 		wp_enqueue_script('jquery');
 	}
 }

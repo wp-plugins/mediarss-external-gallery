@@ -67,3 +67,6 @@ Added the pagination option.
 
 = 0.4.1 =
 Fixes for wordpress 3.5. 
+
+= 0.4.2 =
+Fix to solve a issue that resulted from the previous fix.
