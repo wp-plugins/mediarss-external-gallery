@@ -69,4 +69,7 @@ Added the pagination option.
 Fixes for wordpress 3.5. 
 
 = 0.4.2 =
-Fix to solve a issue that resulted from the previous fix.
+Fixed issue that resulted from the previous fix.
+
+= 0.4.3 =
+Fixed issue that resulted on some feed item not being displayed when pagination is used.
